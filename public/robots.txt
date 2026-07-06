@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /api/*
+
+# Sitemap
+Sitemap: https://zeeshanzia.com/sitemap.xml

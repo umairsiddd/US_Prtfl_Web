@@ -1,0 +1,39 @@
+{
+  "main": [
+    {
+      "name": "About",
+      "url": "/"
+    },
+    {
+      "name": "Projects",
+      "url": "/projects"
+    },
+    {
+      "name": "Services",
+      "url": "/services"
+    },
+    {
+      "name": "Contact",
+      "url": "/contact"
+    }
+  ],
+  "footer": [
+    {
+      "name": "About",
+      "url": "/"
+    },
+    {
+      "name": "Projects",
+      "url": "/projects"
+    },
+    {
+      "name": "Services",
+      "url": "/services"
+    },
+    {
+      "name": "Contact",
+      "url": "/contact"
+    }
+  ],
+  "draft": false
+}

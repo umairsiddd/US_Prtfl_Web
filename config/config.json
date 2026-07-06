@@ -1,0 +1,60 @@
+{
+  "site": {
+    "title": "Umair Siddiqui",
+    "base_url": "/",
+    "favicon": "/images/logos/favicon.png",
+    "logo": "/images/logos/USID_Logo_.png",
+    "logo_white": "/images/logos/USID_Logo_.png",
+    "logo_width": "150",
+    "logo_height": "52",
+    "logo_text": "Umair Siddiqui"
+  },
+  "settings": {
+    "theme_switcher": true,
+    "default_theme": "system",
+    "pagination": 6,
+    "InnerPaginationOptions": {
+      "enableTop": false,
+      "enableBottom": true
+    },
+    "summary_length": 200,
+    "blog_folder": "posts"
+  },
+  "params": {
+    "tag_manager_id": "",
+    "footer_content": "Full-Stack Developer & Digital Strategist",
+    "copyright": "© 2026 Umair Siddiqui. All rights reserved."
+  },
+  "metadata": {
+    "meta_author": "Umair Siddiqui",
+    "meta_image": "/images/logos/USID_Logo_.png",
+    "meta_description": "Umair Siddiqui - Full-Stack Developer & Digital Strategist. Expert in web engineering, ERP implementations, and digital product design. Available for work."
+  },
+  "widgets": {
+    "about": {
+      "enable": true,
+      "content": "I blend artistry with cutting-edge technology to deliver websites that not only look stunning but also drive results."
+    },
+    "featured_posts": {
+      "enable": false,
+      "title": "Featured",
+      "showPost": 3
+    },
+    "categories": {
+      "enable": false,
+      "title": "Categories"
+    },
+    "newsletter": {
+      "enable": false,
+      "title": "Newsletter",
+      "content": "Stay updated with my latest projects and insights.",
+      "privacy_policy_page": "#",
+      "malichipm_url": ""
+    }
+  },
+  "disqus": {
+    "enable": false,
+    "shortname": "",
+    "settings": {}
+  }
+}

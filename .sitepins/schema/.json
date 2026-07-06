@@ -1,0 +1,17 @@
+{
+  "file": "content/_index.md",
+  "name": "content",
+  "fileType": "md",
+  "fmType": "yaml",
+  "template": [
+    {
+      "name": "industry_experience",
+      "label": "industry experience",
+      "type": "gallery",
+      "value": "",
+      "description": "",
+      "isRequired": false,
+      "defaultValue": ""
+    }
+  ]
+}

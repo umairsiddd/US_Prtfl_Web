@@ -1,0 +1,42 @@
+b,
+strong {
+  @apply font-semibold;
+}
+
+// Responsive image utilities
+img {
+  @apply max-w-full h-auto;
+}
+
+// Responsive text utilities
+.text-responsive {
+  @apply text-sm sm:text-base md:text-lg;
+}
+
+// Responsive spacing utilities
+.p-responsive {
+  @apply p-4 sm:p-6 md:p-8;
+}
+
+.mt-responsive {
+  @apply mt-8 sm:mt-12 md:mt-16;
+}
+
+// Overflow handling for mobile
+.overflow-x-mobile {
+  @apply overflow-x-auto sm:overflow-x-visible;
+}
+
+// Better touch targets for mobile
+.touch-target {
+  @apply min-h-[44px] min-w-[44px];
+}
+
+// Hide on specific breakpoints
+.hide-mobile {
+  @apply hidden sm:block;
+}
+
+.hide-desktop {
+  @apply block sm:hidden;
+}
