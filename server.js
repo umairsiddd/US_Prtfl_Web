@@ -1,6 +1,15 @@
+// CRITICAL: Patch process.stdin BEFORE any other require
+// Hostinger's Node.js daemon closes stdin, which causes Next.js ESM loader to crash with EEXIST
+const { Readable } = require('stream');
+if (!process.stdin || process.stdin.destroyed) {
+  process.stdin = new Readable({
+    read() {}
+  });
+  process.stdin.push(null); // Signal end-of-stream immediately
+}
+
 const { createServer } = require('http');
 const { parse } = require('url');
-const next = require('next');
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
@@ -9,14 +18,19 @@ const { execSync } = require('child_process');
 if (!fs.existsSync(path.join(__dirname, '.next'))) {
   console.log('Build folder (.next) not found. Triggering production build...');
   try {
-    execSync('node lib/jsonGenerator.js && npx next build', { stdio: ['ignore', 'inherit', 'inherit'] });
+    execSync('node lib/jsonGenerator.js && npx next build', {
+      stdio: ['ignore', 'inherit', 'inherit'],
+      env: { ...process.env, NODE_ENV: 'production' }
+    });
     console.log('Build completed successfully.');
   } catch (error) {
-    console.error('Error compiling build:', error);
+    console.error('Error during build:', error.message);
   }
 }
 
-const dev = false; // Always run in production mode on Hostinger
+const next = require('next');
+
+const dev = false;
 const hostname = 'localhost';
 const port = process.env.PORT || 3000;
 
@@ -29,7 +43,7 @@ app.prepare().then(() => {
       const parsedUrl = parse(req.url, true);
       await handle(req, res, parsedUrl);
     } catch (err) {
-      console.error('Error occurred handling', req.url, err);
+      console.error('Error handling request', req.url, err);
       res.statusCode = 500;
       res.end('internal server error');
     }
