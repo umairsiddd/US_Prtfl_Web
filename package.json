@@ -12,7 +12,7 @@
     "build": "node lib/jsonGenerator.js && next build",
     "export": "npm run build && next export",
     "lint": "next lint",
-    "start": "node --require ./preload.cjs server.js"
+    "start": "next start"
   },
   "dependencies": {
     "date-fns": "^2.29.3",
@@ -40,6 +40,7 @@
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.9",
     "autoprefixer": "^10.4.13",
+    "basic-ftp": "^6.0.1",
     "jshint": "^2.13.6",
     "postcss": "^8.4.21",
     "prettier": "^2.8.3",

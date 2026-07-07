@@ -34,7 +34,6 @@ try {
  */
 
 const nextConfig = {
-  output: 'standalone', // Bundles server + dependencies for self-contained deployment
   trailingSlash: true,
   reactStrictMode: true,
   eslint: {
