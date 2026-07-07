@@ -9,7 +9,7 @@ const { execSync } = require('child_process');
 if (!fs.existsSync(path.join(__dirname, '.next'))) {
   console.log('Build folder (.next) not found. Triggering production build...');
   try {
-    execSync('node lib/jsonGenerator.js && npx next build', { stdio: 'inherit' });
+    execSync('node lib/jsonGenerator.js && npx next build', { stdio: ['ignore', 'inherit', 'inherit'] });
     console.log('Build completed successfully.');
   } catch (error) {
     console.error('Error compiling build:', error);
