@@ -165,6 +165,36 @@ const PublicationItem = ({ authors, title, venue, year, badge, pdfUrl, abstract,
   );
 };
 
+const ConsultingProjectItem = ({ title, client, description, impact, tools }) => {
+  return (
+    <div className="mb-8 sm:mb-12">
+      <h3 className="text-xl sm:text-2xl font-bold text-dark dark:text-white mb-1">{title}</h3>
+      <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 italic mb-3">{client}</p>
+      <p className="text-sm sm:text-base text-text dark:text-darkmode-light mb-4">{description}</p>
+      
+      {impact && (
+        <div className="mb-4">
+          <p className="text-[15px] sm:text-base font-medium text-dark dark:text-white mb-1">Business Impact:</p>
+          <p className="text-sm sm:text-[15px] text-text dark:text-darkmode-light border-l-2 border-primary pl-3">{impact}</p>
+        </div>
+      )}
+
+      {tools && tools.length > 0 && (
+        <div className="flex flex-wrap gap-2 mt-4">
+          {tools.map((tool, index) => (
+            <span
+              key={index}
+              className="px-3 py-1 text-xs sm:text-sm font-medium rounded-full border border-blue-200/50 dark:border-blue-700/50 bg-blue-100/30 dark:bg-blue-900/30 backdrop-blur-md shadow-sm text-blue-800 dark:text-blue-200"
+            >
+              {tool}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
 const Home = ({
   banner,
   posts,
@@ -197,8 +227,8 @@ const Home = ({
 
   return (
     <Base
-      title="Zeeshan Zia"
-      description="Zeeshan Zia - President of Retrocausal. Building AI systems for visual activity understanding in industrial environments. 50+ peer-reviewed papers, 25+ patents."
+      title="Umair Siddiqui"
+      description="Umair Siddiqui - Dynamics 365 Finance & Operations Consultant. MBA Finance professional specializing in ERP consulting, business process optimization, and digital solutions."
     >
       {/* Banner */}
       <section className="section banner relative pb-0">
@@ -211,9 +241,9 @@ const Home = ({
           priority
         />
 
-        <div className="container">
-          <div className="row flex-wrap-reverse items-center justify-center lg:flex-row">
-            <div className={banner.image_enable ? "mt-12 text-center lg:mt-0 lg:text-left lg:col-7" : "mt-12 text-center lg:mt-0 lg:text-left lg:col-12"}>
+        <div className="container w-full">
+          <div className="row flex-wrap-reverse items-stretch justify-center lg:flex-row">
+            <div className={banner.image_enable ? "mt-12 text-center lg:mt-0 lg:text-left lg:col-8 min-h-[380px] sm:min-h-[420px] lg:min-h-[480px] flex flex-col justify-center pb-8 lg:pb-12" : "mt-12 text-center lg:mt-0 lg:text-left lg:col-12"}>
               <div className="banner-title">
                 {markdownify(banner.title, "h1")}
                 {markdownify(banner.title_small, "span")}
@@ -230,12 +260,12 @@ const Home = ({
               )}
             </div>
             {banner.image_enable && (
-              <div className="col-9 lg:col-5">
+              <div className="col-7 sm:col-6 lg:col-4 self-end pt-6 px-6 pb-0 sm:pt-8 sm:px-8 lg:pt-12 lg:px-12 flex items-end">
                 <ImageFallback
-                  className="mx-auto object-contain"
+                  className="mx-auto object-contain block align-bottom mb-[-30px] sm:mb-0"
                   src={banner.image}
-                  width={450}
-                  height={365}
+                  width={380}
+                  height={308}
                   priority={true}
                   alt="Banner Image"
                 />
@@ -266,7 +296,7 @@ const Home = ({
                         href={item.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block h-28 sm:h-32 md:h-40 flex items-center justify-start sm:justify-center mb-4 sm:mb-6 transition-all duration-300 rounded-2xl p-4 hover:scale-[1.03]"
+                        className="flex items-center justify-center w-full max-w-[220px] h-20 sm:h-24 md:h-28 mr-auto sm:mx-auto mb-4 sm:mb-6 transition-all duration-300 rounded-2xl p-4 hover:scale-[1.03]"
                         style={glassCardStyle}
                       >
                         <ImageFallback
@@ -278,7 +308,7 @@ const Home = ({
                           alt={item.company}
                           width={180}
                           height={180}
-                          className="object-contain w-[120px] h-[120px] sm:w-[150px] sm:h-[150px] md:w-[180px] md:h-[180px] rounded-lg"
+                          className="object-contain w-auto h-10 sm:h-12 md:h-16 max-w-[160px] rounded-lg"
                           style={{ borderRadius: '8px' }}
                         />
                       </a>
@@ -311,7 +341,7 @@ const Home = ({
                         href={item.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block h-28 sm:h-32 md:h-40 flex items-center justify-start sm:justify-center mb-4 sm:mb-6 transition-all duration-300 rounded-2xl p-4 hover:scale-[1.03]"
+                        className="flex items-center justify-center w-full max-w-[220px] h-20 sm:h-24 md:h-28 mr-auto sm:mx-auto mb-4 sm:mb-6 transition-all duration-300 rounded-2xl p-4 hover:scale-[1.03]"
                         style={glassCardStyle}
                       >
                         <ImageFallback
@@ -319,7 +349,7 @@ const Home = ({
                           alt={item.institution}
                           width={180}
                           height={180}
-                          className="object-contain w-[120px] h-[120px] sm:w-[150px] sm:h-[150px] md:w-[180px] md:h-[180px] rounded-lg"
+                          className="object-contain w-auto h-10 sm:h-12 md:h-16 max-w-[160px] rounded-lg"
                           style={{ borderRadius: '8px' }}
                         />
                       </a>
@@ -338,73 +368,70 @@ const Home = ({
         </section>
       )}
 
-      {/* Selected Recent Publications Section */}
+      {/* Consulting Projects Section */}
       <section className="section pt-12 sm:pt-16 md:pt-[100px]">
         <div className="container">
           <h2 className="section-title mb-6 sm:mb-8 md:mb-[60px] leading-normal sm:leading-[50px] md:leading-normal">
-            Selected Recent Publications{" "}
-            <Link href="/publications" className="pub-badge conference no-underline hover:opacity-80">
+            Consulting Projects{" "}
+            <Link href="/projects" className="pub-badge conference no-underline hover:opacity-80">
               See All...
             </Link>
           </h2>
 
-          {/* 2026 */}
-          <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-6 text-dark dark:text-darkmode-light">2026</h3>
-
-          <PublicationItem
-            authors="Fawad J. Fateh, Umer Ahmed, Hamza Khan, M. Zeeshan Zia, Quoc-Huy Tran"
-            title="Video LLMs for Temporal Reasoning in Long Videos."
-            venue="ACL"
-            year="2026"
-            badge="Conference"
-            pdfUrl="https://arxiv.org/abs/2412.02930"
-            videoUrl="https://youtu.be/lEUluMdNHcc"
-            abstract="We introduce TemporalVLM, a video large language model designed for temporal reasoning and fine-grained understanding in long videos. The model incorporates a time-aware clip encoder that divides long videos into short-term clips and jointly encodes frames with timestamps to capture time-sensitive local features. These features are then aggregated using a bidirectional long short-term memory (BiLSTM) module to model long-range temporal dependencies and global context. To facilitate evaluation, we present IndustryASM, a large-scale dataset of industry assembly processes with action labels and timestamps annotated by industrial engineers. Extensive experiments demonstrate that TemporalVLM outperforms prior video LLMs across multiple temporal reasoning tasks, including dense video captioning, temporal video grounding, video highlight detection, and temporal action segmentation. To the best of our knowledge, this work is the first to integrate LSTMs into video large language models."
-            bibtex={`@inproceedings{fateh26temporalvlm,
- author = {Fawad J. Fateh and Umer Ahmed and Hamza Khan and M. Zeeshan Zia and Quoc-Huy Tran},
- title = {Video LLMs for Temporal Reasoning in Long Videos},
- booktitle = {ACL},
- year = {2026}
-}`}
+          <ConsultingProjectItem
+            title="ERP Security & Governance Framework"
+            client="CLOUDCLIF — International Enterprise Client"
+            description="Designed and implemented a comprehensive Security Roles & License Management Dashboard within D365 F&O, providing real-time visibility into user roles, duties, and licensing utilization. Configured granular security roles, duties, privileges, and access controls across finance operations."
+            impact="Enabled executive leadership to optimize licensing costs and ensured 100% compliance with internal audit standards and data security protocols."
+            tools={["D365 F&O", "X++", "SSRS", "Azure DevOps", "SQL", "ERP Governance"]}
           />
 
-          <PublicationItem
-            authors="Syed Ahmed Mahmood, Ali Shah Ali, Umer Ahmed, Fawad Javed Fateh, M. Zeeshan Zia, Quoc-Huy Tran"
-            title="Procedure Learning via Regularized Gromov-Wasserstein Optimal Transport."
-            venue="WACV"
-            year="2026"
-            badge="Conference"
-            pdfUrl="https://arxiv.org/abs/2507.15540"
-            videoUrl="https://youtu.be/UuTeflDyF-g"
-            abstract="This paper studies self-supervised procedure learning, which aims to discover key steps and their ordering from a collection of unlabeled instructional videos. Prior approaches typically rely on frame-to-frame video alignment, but their performance degrades in the presence of order variations, background or redundant frames, and repeated actions. To address these challenges, the proposed method introduces a self-supervised framework based on a fused Gromov-Wasserstein optimal transport formulation with a structural prior for temporal alignment. However, optimizing temporal alignment alone can lead to degenerate solutions where frame embeddings collapse into a single cluster. To prevent this, the framework integrates a contrastive regularization that encourages embedding diversity across frames. Extensive experiments on egocentric and third-person benchmarks demonstrate that the proposed regularized Gromov-Wasserstein optimal transport approach outperforms prior methods, including OPEL, while using a unified loss formulation that avoids balancing multiple competing objectives."
-            bibtex={`@inproceedings{mahmood25procedure,
- author = {Syed Ahmed Mahmood and Ali Shah Ali and Umer Ahmed and Fawad Javed Fateh and M. Zeeshan Zia and Quoc-Huy Tran},
- title = {Procedure Learning via Regularized Gromov-Wasserstein Optimal Transport},
- booktitle = {WACV},
- year = {2026}
-}`}
+          <ConsultingProjectItem
+            title="Financial Reporting Modernization (AX 2012 → D365 Finance)"
+            client="CLOUDCLIF — Multi-Region Enterprise"
+            description="Led the strategic migration and modernization of 100+ enterprise financial SSRS/Docentric reports from legacy Dynamics AX 2012 to Dynamics 365 Finance. Redesigned report templates across invoicing, inventory visibility, and sales analytics for clients in the US, Australia, New Zealand, and Saudi Arabia."
+            impact="Improved financial data accuracy and reporting agility, reducing period-end closing time and strengthening decision-support analysis for executive leadership."
+            tools={["D365 Finance", "AX 2012", "SSRS", "Docentric", "X++", "SQL", "FDD/TDD"]}
           />
 
-          {/* 2025 */}
-          <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-6 mt-6 sm:mt-8 md:mt-10 text-dark dark:text-darkmode-light">2025</h3>
+          <ConsultingProjectItem
+            title="D365 F&O ERP Implementation & Enhancement Projects (10+)"
+            client="CLOUDCLIF — Multiple Clients (US, AU, NZ, KSA)"
+            description="Delivered Microsoft Dynamics 365 Finance & Operations solutions across 10+ implementation, enhancement, and migration projects. Partnered with finance and business stakeholders to gather requirements, analyze operational challenges, and translate business needs into scalable ERP solutions."
+            impact="Improved financial and operational processes across diverse business and regulatory environments, delivered through cross-functional collaboration with consultants, project managers, and business users."
+            tools={["D365 F&O", "Business Central", "X++", "SQL", "FDD", "TDD", "Azure DevOps"]}
+          />
 
+          <ConsultingProjectItem
+            title="Financial Systems Analysis & Process Auditing"
+            client="EuSopht — Enterprise Clients (Karachi, Pakistan)"
+            description="Evaluated existing financial ERP configurations to identify bottlenecks in invoice processing and financial reporting. Acted as the primary functional point of contact for clients, ensuring ERP customizations directly addressed business challenges. Conducted regular audits of financial outputs against internal accounting standards."
+            impact="Improved data integrity, compliance posture, and audit-readiness of financial reporting systems across multiple client engagements."
+            tools={["D365 F&O", "Financial Reporting", "Process Auditing", "Stakeholder Management"]}
+          />
 
+          <ConsultingProjectItem
+            title="CRM & Marketing Sales Automation"
+            client="Retrocausal.ai — Remote, USA"
+            description="Architected an end-to-end lead management system in HubSpot, integrating custom web landing pages with automated nurturing workflows. Implemented Google Analytics 4, Google Tag Manager, and custom event tracking. Integrated HubSpot with GA4 for full-funnel lead attribution."
+            impact="Streamlined the sales pipeline and increased lead qualification efficiency, providing the sales team with a data-backed customer journey view from first touch to conversion."
+            tools={["HubSpot CRM", "Google Analytics 4", "Google Tag Manager", "WordPress", "JavaScript", "SEO"]}
+          />
 
-          <PublicationItem
-            authors="Ali Shah Ali, Syed Ahmed Mahmood, Mubin Saeed, Andrey Konin, M. Zeeshan Zia, Quoc-Huy Tran"
-            title="Joint Self-Supervised Video Alignment and Action Segmentation."
-            venue="ICCV"
-            year="2025"
-            badge="Conference"
-            pdfUrl="https://arxiv.org/abs/2503.16832"
-            videoUrl="https://youtu.be/dGT6UvGZQwI?si=VsvslcYMFLvmycFM"
-            abstract="This paper introduces a unified self-supervised framework for jointly performing video alignment and action segmentation using optimal transport. The proposed approach formulates self-supervised video alignment through a fused Gromov–Wasserstein optimal transport model with structural priors, enabling efficient GPU-based training and rapid convergence. Building upon this, the method is extended into a unified optimal transport formulation that simultaneously addresses frame-to-frame video alignment and frame-to-action segmentation within a single model. The joint approach reduces both training time and memory requirements compared to training separate models for each task. Extensive experiments across multiple video alignment and action segmentation benchmarks demonstrate state-of-the-art performance in video alignment and superior results in action segmentation. To the best of our knowledge, this is the first work to unify self-supervised video alignment and action segmentation within a single learning framework."
-            bibtex={`@inproceedings{ali25joint,
- author = {Ali Shah Ali and Syed Ahmed Mahmood and Mubin Saeed and Andrey Konin and M. Zeeshan Zia and Quoc-Huy Tran},
- title = {Joint Self-Supervised Video Alignment and Action Segmentation},
- booktitle = {ICCV},
- year = {2025}
-}`}
+          <ConsultingProjectItem
+            title="Digital Transformation: Pricing & Conversion Optimization"
+            client="Retrocausal.ai — Kaizen Copilot Product"
+            description="Developed a proprietary dynamic pricing calculator integrated with business logic, enabling prospects to receive instant, accurate cost estimates. Integrated the tool with HubSpot CRM to automatically capture prospect data and intent signals."
+            impact="Significantly improved the customer acquisition process and shortened the sales cycle by delivering immediate pricing clarity to prospects at the top of the funnel."
+            tools={["JavaScript", "HubSpot CRM", "WordPress", "GA4", "GTM"]}
+          />
+
+          <ConsultingProjectItem
+            title="Corporate Website & Executive Portfolio Development"
+            client="Retrocausal.ai — CEO Digital Brand"
+            description="Worked directly with CEO Zeeshan Zia to develop, maintain, and continuously enhance the corporate website and executive portfolio. Designed and developed high-converting landing pages and research portals, improved website SEO, and managed third-party API integrations."
+            impact="Strengthened the company's digital brand identity and executive online presence, supporting revenue growth initiatives through improved digital customer journeys."
+            tools={["WordPress", "HTML", "CSS", "JavaScript", "Yoast SEO", "HubSpot", "DNS Management"]}
           />
         </div>
       </section>

@@ -1,21 +1,22 @@
 ---
 banner:
   title: Umair Siddiqui
-  title_small: ERP Finance Consultant | Business Process Analyst | Microsoft Dynamics 365
+  title_small: MBA (Finance) | ERP Finance Consultant | Business Process Analyst | Microsoft Dynamics 365 Finance | Digital Transformation & Web Solutions
   content: >-
-    MBA (Finance) professional with 4+ years of experience in ERP Finance Consulting and digital transformation, bridging business strategy with enterprise technology. Expert in business process analysis, financial reporting, and solution design for end-to-end ERP deployments.<br><br>
+    MBA (Finance) professional with 4+ years of experience in ERP Finance Consulting and digital transformation, bridging business strategy with enterprise technology. Expert in business process analysis, financial reporting, and solution design for end-to-end ERP deployments.<br>
 
 
-    Highly skilled in driving business process improvement, CRM optimization, and cross-functional collaboration to deliver scalable, data-driven solutions for executive leadership. Available for new engagements.<br><br>
+    Highly skilled in driving business process improvement, CRM optimization, and cross-functional collaboration to deliver scalable, data-driven solutions for executive leadership. Available for new engagements.<br>
 
 
     Let's build something impactful together.
-  image_enable: false
+  image_enable: true
+  image: /images/Umair_Picture-C.png
   button:
-    enable: true
+    enable: false
     label: Schedule a Consultation
     link: /contact
-    rel: ''
+    rel: '#'
 experience:
   enable: true
   industry:
@@ -24,31 +25,31 @@ experience:
       - company: CLOUDCLIF
         location: Remote – Pakistan
         logo: /images/logos/cloudclif.png
-        url: '#'
+        url: 'https://www.cloudclif.com'
         role: Dynamics 365 Finance Consultant
         period: 2024-2026
       - company: Retrocausal.ai
         location: Remote – USA
         logo: /images/logos/retrocausal.png
-        url: https://retrocausal.ai/
+        url: 'https://retrocausal.ai'
         role: Business Solutions & Digital Transformation Consultant
         period: 2024-2026
       - company: EuSopht
         location: On-site - KHI-PK
         logo: /images/logos/eusopht.png
-        url: '#'
+        url: 'https://eusopht.com/'
         role: D365 Finance & Operations Analyst
         period: 2023-2024
       - company: Aciano Technologies
         location: On-site - KHI-PK
         logo: /images/logos/aciano.png
-        url: '#'
+        url: 'https://aciano.net/'
         role: Dynamics 365 F&O Analyst (Intern)
         period: 2022
       - company: Mazik Global (Quisitive)
         location: On-site - KHI-PK
         logo: /images/logos/mazik.png
-        url: '#'
+        url: 'https://mazikglobal.com.pk/'
         role: Business Solutions Developer (Intern)
         period: 2021
   academia:

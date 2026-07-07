@@ -1,5 +1,6 @@
 import { markdownify } from "@lib/utils/textConverter";
 import Link from "next/link";
+import { useState } from "react";
 import { BsArrowRightShort } from "react-icons/bs";
 import { FaEnvelope, FaMapMarkerAlt, FaUserAlt } from "react-icons/fa";
 import ImageFallback from "./components/ImageFallback";
@@ -7,6 +8,7 @@ import ImageFallback from "./components/ImageFallback";
 const Contact = ({ data }) => {
   const { frontmatter } = data;
   const { title, form_action, phone, mail, location } = frontmatter;
+  const [userSubject, setUserSubject] = useState("");
 
   return (
     <section className="section mt-8 sm:mt-12 lg:mt-16">
@@ -39,6 +41,12 @@ const Contact = ({ data }) => {
               method="POST"
               action={form_action}
             >
+              {/* Formsubmit hidden field for subject line formatting */}
+              <input
+                type="hidden"
+                name="_subject"
+                value={`Message from Umair Siddiqui Website - ${userSubject}`}
+              />
               <div className="mb-6">
                 <label className="mb-2 block font-secondary" htmlFor="name">
                   Full name
@@ -78,9 +86,11 @@ const Contact = ({ data }) => {
                 </label>
                 <input
                   className="form-input w-full"
-                  name="subject"
+                  name="user_subject"
                   type="text"
                   placeholder="Blog advertisement"
+                  value={userSubject}
+                  onChange={(e) => setUserSubject(e.target.value)}
                   required
                 />
               </div>
@@ -93,8 +103,10 @@ const Contact = ({ data }) => {
                 </label>
                 <textarea
                   className="form-textarea w-full"
+                  name="message"
                   placeholder="Hello I’m Mr ‘x’ from………….."
                   rows="7"
+                  required
                 />
               </div>
               <input

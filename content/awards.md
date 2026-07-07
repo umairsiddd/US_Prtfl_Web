@@ -1,7 +1,7 @@
 ---
 title: Selected Awards
-meta_title: Zeeshan Zia - Awards
-description: "Awards and honors received by Zeeshan Zia for contributions to AI research, visual activity understanding, and machine learning innovation."
+meta_title: Umair Siddiqui - Awards
+description: "Awards and honors received by Umair Siddiqui."
 layout: awards
 ---
 

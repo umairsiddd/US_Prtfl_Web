@@ -2,10 +2,10 @@
   "site": {
     "title": "Umair Siddiqui",
     "base_url": "/",
-    "favicon": "/images/logos/favicon.png",
-    "logo": "/images/logos/USID_Logo_.png",
-    "logo_white": "/images/logos/USID_Logo_.png",
-    "logo_width": "150",
+    "favicon": "/images/US_FavIcon-C.png",
+    "logo": "/images/Umair_Siddiqui-C_Light.png",
+    "logo_white": "/images/Umair_Siddiqui-C.png",
+    "logo_width": "220",
     "logo_height": "52",
     "logo_text": "Umair Siddiqui"
   },
@@ -22,12 +22,12 @@
   },
   "params": {
     "tag_manager_id": "",
-    "footer_content": "Full-Stack Developer & Digital Strategist",
+    "footer_content": "ERP Consultant & Digital Transformation Specialist",
     "copyright": "© 2026 Umair Siddiqui. All rights reserved."
   },
   "metadata": {
     "meta_author": "Umair Siddiqui",
-    "meta_image": "/images/logos/USID_Logo_.png",
+    "meta_image": "/images/Umair_Siddiqui-C.png",
     "meta_description": "Umair Siddiqui - Full-Stack Developer & Digital Strategist. Expert in web engineering, ERP implementations, and digital product design. Available for work."
   },
   "widgets": {

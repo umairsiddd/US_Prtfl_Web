@@ -1,20 +1,17 @@
 ---
 title: "Let’s, Talk </br> About You"
-description: "meta description"
-phone: "+211234565523"
-mail: "info@email.com"
-location: "9567 Turner Trace Apt. BC C3G8A4"
-form_action: "#"
+description: "Contact Umair Siddiqui"
+phone: ""
+mail: "siddiquiumairullah@gmail.com"
+location: "Karachi, Pakistan"
+form_action: "https://formsubmit.co/ee7ebf281e10af5a5e2c60c5b1da61f6"
 layout: "contact"
 addresses:
-  - icon: FaUserAlt
-    content: +211234565523
-    link: tel:+211234565523
   - icon: FaMapMarkerAlt
-    content: info@email.com
-    link: mailto:info@email.com
+    content: siddiquiumairullah@gmail.com
+    link: mailto:siddiquiumairullah@gmail.com
   - icon: FaLocation
-    content: 9567 Turner Trace Apt. BC C3G8A4
+    content: Karachi, Pakistan
 
 draft: false
 ---

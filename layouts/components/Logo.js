@@ -25,11 +25,8 @@ const Logo = ({ src }) => {
           }
           alt={title}
           priority
-          style={{
-            height: logo_height.replace("px", "") + "px",
-            width: logo_width.replace("px", "") + "px",
-          }}
-          className={"m-auto"}
+          style={{}}
+          className="m-auto w-[180px] h-[42px] md:w-[220px] md:h-[52px] object-contain"
         />
       ) : logo_text ? (
         logo_text
